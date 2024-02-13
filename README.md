@@ -1,112 +1,63 @@
-# React homework template
+# Contact Management App
 
-Цей проект був створений за допомогою
-[Create React App](https://github.com/facebook/create-react-app). Для знайомства
-і налаштування додаткових можливостей
-[звернися до документації](https://facebook.github.io/create-react-app/docs/getting-started).
+This React application serves as a straightforward contact management system,
+offering essential features for adding, searching, and deleting contacts.
 
-## Створення репозиторію за шаблоном
+> [!NOTE]\
+> The code has been refactored using React hooks.
 
-Використовуй цей репозиторій організації GoIT як шаблон для створення репозиторію
-свого проєкта. Для цього натисни на кнопку `«Use this template»` і вибери опцію
-`«Create a new repository»`, як показано на зображенні.
+## Features
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+1. **Add Contacts:** Use the provided form to easily add new contacts, including
+   names and phone numbers.
 
-На наступному кроці відкриється сторінка створення нового репозиторію. Заповни поле
-його імені, переконайся що репозиторій публічний, після чого натисни кнопку
-`«Create repository from template»`.
+2. **Search Functionality:** Effortlessly search through your contact list by
+   entering names in the search field.
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+3. **Contact Deletion:** Conveniently delete contacts that are no longer needed,
+   enhancing the user's control over their contact list.
 
-Після того як репозиторій буде створено, необхідно перейти в налаштування
-створеного репозиторію на вкладку `Settings` > `Actions` > `General` як
-показано на зображенні.
+## Usage
 
-![Settings GitHub Actions permissions step 1](./assets/gh-actions-perm-1.png)
+- **Adding New Contacts:**
 
-Проскроливши сторінку до самого кінця, у секції `«Workflow permissions»` вибери
-опцію `«Read and write permissions»` і постав галочку в чекбоксі. Це
-необхідно для автоматизації процесу деплою проєкту.
+  - Look for the "Add Contact" section or a similar button.
+  - Fill in the required information, including the contact's name and phone
+    number, in the provided form.
+  - Submit the form to add the new contact to your list.
 
-![Settings GitHub Actions permissions step 2](./assets/gh-actions-perm-2.png)
+- **Searching for Contacts:**
 
-Тепер у тебе є особистий репозиторій проекту, зі структурою файлів і папок
-репозиторію-шаблону. Далі працюй із ним як із будь-яким іншим особистим репозиторієм,
-клонуй його собі на комп'ютер, пиши код, роби комміти і відправляй їх на
-GitHub.
+  - Locate the search bar or input field on the page.
+  - Enter the name of the contact you are looking for.
+  - The application will dynamically filter and display matching contacts as you
+    type.
 
-## Підготовка до роботи
+- **Deleting Contacts:**
 
-1. Переконайся що на комп'ютері встановлено LTS-версія Node.js.
-   [Завантаж і встанови](https://nodejs.org/en/) її якщо необхідно.
-2. Встанови базові залежності проєкту командою `npm install`.
-3. Запусти режим розробки, виконавши команду `npm start`.
-4. Перейди в браузері за адресою [http://localhost:3000](http://localhost:3000).
-   Ця сторінка буде автоматично перезавантажуватися після збереження змін у файлах проєкту.
+  - Find the list of contacts displayed on the page.
+  - Look for a delete or remove option associated with each contact.
+  - Click on the delete option to remove unwanted contacts from your list.
 
-## Деплой
+## Project Structure
 
-Продакшн версія проєкту буде автоматично проходити лінтинг, збиратися і
-деплоїтися на GitHub Pages, у гілку `gh-pages`, щоразу, коли оновлюється
-гілка `main`. Наприклад, після прямого пушу або прийнятого пул-реквесту. Для цього
-необхідно у файлі `package.json` відредагувати поле `homepage`, замінивши
-`your_username` і `your_repo_name` на свої, і відправити зміни на GitHub.
+The project structure follows a modular approach with the following components:
 
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
-```
+- **ContactForm Component:**
 
-Далі необхідно зайти в налаштування GitHub-репозиторію (`Settings` > `Pages`) і
-виставити роздачу продакшн-версії файлів із папки `/root` гілки `gh-pages`, якщо
-це не було зроблено автоматично.
+  - Manages the form for adding new contacts.
 
-![GitHub Pages settings](./assets/repo-settings.png)
+- **ContactList Component:**
 
-### Статус деплоя
+  - Displays the list of contacts.
 
-Статус деплою крайнього коміту відображається іконкою біля його ідентифікатора.
+- **ContactItem Component:**
 
-- **Жовтий колір** - виконується збірка і деплой проєкту.
-- **Зелений колір** - деплой завершився успішно.
-- **Червоний колір** - під час лінтингу, сборки або деплою сталася помилка.
+  - Represents an individual contact in the list.
 
-Детальнішу інформацію про статус можна подивитися, клікнувши на іконку, і
-у вікні, що випадає, перейти за посиланням `Details`.
+- **Filter Component:**
 
-![Deployment status](./assets/deploy-status.png)
+  - Implements the search functionality.
 
-### Жива сторінка
-
-Через якийсь час, зазвичай кілька хвилин, живу сторінку можна буде подивитися
-за адресою, вказаною у відредагованій властивості `homepage`. Наприклад, ось
-посилання на живу версію для цього репозиторію
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
-
-Якщо відкривається порожня сторінка, переконайся, що у вкладці `Console` немає помилок
-пов'язаних із неправильними шляхами до CSS і JS файлів проєкту (**404**). Швидше 
-за все у тебе неправильне значення властивості `homepage` у файлі `package.json`.
-
-### Маршрутизація
-
-Якщо додаток використовує бібліотеку `react-router-dom` для маршрутизації,
-необхідно додатково налаштувати компонент `<BrowserRouter>`, передавши у пропе
-`basename` точну назву твого репозиторію. Слеш на початку рядка обов'язковий.
-
-```jsx
-<BrowserRouter basename="/your_repo_name">
-  <App />
-</BrowserRouter>
-```
-
-## Як це працює
-
-![How it works](./assets/how-it-works.png)
-
-1. Після кожного пушу в гілку `main` GitHub-репозиторія, запускається спеціальний
-   скрипт (GitHub Action) з файла `.github/workflows/deploy.yml`.
-2. Усі файли репозиторію копіюються на сервер, де проект ініціалізується і
-   проходить лінтинг і збірку перед деплоєм.
-3. Якщо всі кроки пройшли успішно, зібрана продакшн-версія файлів проєкту
-   відправляється в гілку `gh-pages`. В іншому випадку, в лозі виконання
-   скрипта буде вказано в чому проблема.
+- **App Component:**
+  - Root component managing the state for contacts and filter.
