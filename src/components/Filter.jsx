@@ -1,28 +1,22 @@
-import PropTypes from 'prop-types';
-import Form from 'react-bootstrap/Form';
+import { useSelector, useDispatch } from 'react-redux';
+import { setFilter } from '../redux/reducers/contactsSlice';
 
-/**
- * Filter component for filtering contacts by name.
- * @param {Object} props - The component props.
- * @param {string} props.value - The current filter value.
- * @param {Function} props.onChange - The function to handle filter changes.
- */
-export const Filter = ({ value, onChange }) => {
+const Filter = () => {
+  const filter = useSelector(state => state.contacts.filter);
+  const dispatch = useDispatch();
+
+  const handleChange = event => {
+    dispatch(setFilter(event.target.value));
+  };
+
   return (
-    <Form.Group className="mb-3">
-      <Form.Label>Find contacts by name</Form.Label>
-      <Form.Control
-        type="text"
-        value={value}
-        onChange={onChange}
-        placeholder="Enter name to filter"
-      />
-    </Form.Group>
+    <input
+      type="text"
+      placeholder="Search contacts..."
+      value={filter}
+      onChange={handleChange}
+    />
   );
 };
 
-// PropTypes for Filter
-Filter.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-};
+export default Filter;
