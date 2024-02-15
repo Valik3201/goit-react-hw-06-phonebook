@@ -1,10 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  contacts: [
-    { id: 0, name: 'Katy Perry', phone: '+1 (682) 560-1864' },
-    { id: 1, name: 'Lady Gaga', phone: '+1 (845) 927-7865' },
-  ],
+  contacts: [],
   filter: '',
 };
 
