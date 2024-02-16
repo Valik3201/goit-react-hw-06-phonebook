@@ -4,8 +4,10 @@ import Filter from './Filter';
 
 function App() {
   return (
-    <div>
-      <h1>Phone Book</h1>
+    <div className="container mx-auto flex flex-col gap-4">
+      <h1 className="text-3xl font-semibold">
+        Phone<span className="text-blue-600">Book</span>
+      </h1>
       <ContactForm />
       <Filter />
       <ContactList />

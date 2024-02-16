@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { setFilter } from '../redux/reducers/filterSlice';
 import { selectFilter } from '../redux/selectors/contactsSelectors';
+import { Input } from '@nextui-org/react';
+import { Search } from 'lucide-react';
 
 const Filter = () => {
   const filter = useSelector(selectFilter);
@@ -11,11 +13,16 @@ const Filter = () => {
   };
 
   return (
-    <input
+    <Input
+      label="Search Contacts"
       type="text"
-      placeholder="Search contacts..."
+      placeholder="Search contacts"
       value={filter}
       onChange={handleChange}
+      labelPlacement="outside"
+      startContent={
+        <Search className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+      }
     />
   );
 };

@@ -3,6 +3,9 @@ import { useDispatch } from 'react-redux';
 import { addContact } from '../redux/reducers/contactsSlice';
 import { nanoid } from 'nanoid';
 
+import { Input } from '@nextui-org/react';
+import { Button } from '@nextui-org/react';
+
 const ContactForm = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
@@ -16,26 +19,30 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Name:
-        <input
-          type="text"
-          value={name}
-          onChange={e => setName(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Phone:
-        <input
-          type="text"
-          value={phone}
-          onChange={e => setPhone(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Add Contact</button>
+    <form
+      onSubmit={handleSubmit}
+      className="flex w-full flex-wrap md:flex-nowrap gap-4"
+    >
+      <Input
+        type="text"
+        label="Name"
+        value={name}
+        onChange={e => setName(e.target.value)}
+        isRequired
+        size="sm"
+      />
+      <Input
+        type="text"
+        label="Phone"
+        value={phone}
+        onChange={e => setPhone(e.target.value)}
+        isRequired
+        size="sm"
+      />
+
+      <Button type="submit" color="primary" size="lg" className="px-12">
+        Add Contact
+      </Button>
     </form>
   );
 };
