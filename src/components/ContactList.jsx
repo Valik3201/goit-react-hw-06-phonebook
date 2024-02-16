@@ -25,28 +25,36 @@ function ContactList() {
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
+  const sortedContacts = filteredContacts
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name));
+
   const handleDelete = id => {
     dispatch(deleteContact(id));
   };
 
   return (
-    <Table aria-label="Example static collection table">
+    <Table
+      aria-label="Contacts"
+      selectionMode="single"
+      defaultSelectedKeys={['2']}
+    >
       <TableHeader>
-        <TableColumn>NAME</TableColumn>
-        <TableColumn>PHONE</TableColumn>
-        <TableColumn>ACTIONS</TableColumn>
+        <TableColumn className="w-2/5">NAME</TableColumn>
+        <TableColumn className="w-2/5">PHONE</TableColumn>
+        <TableColumn className="w-1/5 text-center">ACTIONS</TableColumn>
       </TableHeader>
-      <TableBody>
-        {filteredContacts.map(contact => (
+      <TableBody emptyContent={'No contacts to display.'}>
+        {sortedContacts.map(contact => (
           <TableRow key={contact.id}>
             <TableCell>{contact.name}</TableCell>
             <TableCell>{contact.phone}</TableCell>
-            <TableCell>
+            <TableCell className="text-center">
               <Button
                 color="danger"
-                variant="bordered"
+                variant="light"
                 size="sm"
-                startContent={<Trash2 />}
+                startContent={<Trash2 className="w-4 h-4" />}
                 onClick={() => handleDelete(contact.id)}
               >
                 Delete

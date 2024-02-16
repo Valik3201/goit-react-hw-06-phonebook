@@ -14,7 +14,6 @@ const Filter = () => {
 
   return (
     <Input
-      label="Search Contacts"
       type="text"
       placeholder="Search contacts"
       value={filter}
