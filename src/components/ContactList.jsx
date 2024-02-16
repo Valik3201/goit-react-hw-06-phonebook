@@ -56,8 +56,19 @@ function ContactList() {
                 size="sm"
                 startContent={<Trash2 className="w-4 h-4" />}
                 onClick={() => handleDelete(contact.id)}
+                className="hidden md:flex"
               >
                 Delete
+              </Button>
+
+              <Button
+                color="danger"
+                variant="light"
+                isIconOnly
+                onClick={() => handleDelete(contact.id)}
+                className="md:hidden"
+              >
+                <Trash2 className="w-4 h-4" />
               </Button>
             </TableCell>
           </TableRow>
