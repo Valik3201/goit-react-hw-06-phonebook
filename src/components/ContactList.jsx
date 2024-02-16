@@ -5,6 +5,17 @@ import {
   selectFilter,
 } from '../redux/selectors/contactsSelectors';
 
+import {
+  Table,
+  TableHeader,
+  TableColumn,
+  TableBody,
+  TableRow,
+  TableCell,
+} from '@nextui-org/react';
+import { Button } from '@nextui-org/react';
+import { Trash2 } from 'lucide-react';
+
 function ContactList() {
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
@@ -19,14 +30,32 @@ function ContactList() {
   };
 
   return (
-    <ul>
-      {filteredContacts.map(contact => (
-        <li key={contact.id}>
-          {contact.name} - {contact.phone}
-          <button onClick={() => handleDelete(contact.id)}>Delete</button>
-        </li>
-      ))}
-    </ul>
+    <Table aria-label="Example static collection table">
+      <TableHeader>
+        <TableColumn>NAME</TableColumn>
+        <TableColumn>PHONE</TableColumn>
+        <TableColumn>ACTIONS</TableColumn>
+      </TableHeader>
+      <TableBody>
+        {filteredContacts.map(contact => (
+          <TableRow key={contact.id}>
+            <TableCell>{contact.name}</TableCell>
+            <TableCell>{contact.phone}</TableCell>
+            <TableCell>
+              <Button
+                color="danger"
+                variant="bordered"
+                size="sm"
+                startContent={<Trash2 />}
+                onClick={() => handleDelete(contact.id)}
+              >
+                Delete
+              </Button>
+            </TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
   );
 }
 
