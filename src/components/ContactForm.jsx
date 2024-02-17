@@ -10,6 +10,10 @@ import { Button } from '@nextui-org/react';
 
 import { Plus } from 'lucide-react';
 
+/**
+ * Component for adding contacts.
+ * @returns {JSX.Element} The JSX element representing the contact form.
+ */
 const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
@@ -19,6 +23,11 @@ const ContactForm = () => {
   const [existingName, setExistingName] = useState(null);
   const [existingPhone, setExistingPhone] = useState(null);
 
+  /**
+   * Handles form submission to add a new contact.
+   * @param {object} event - The form submission event.
+   * @returns {void}
+   */
   const handleSubmit = event => {
     event.preventDefault();
 

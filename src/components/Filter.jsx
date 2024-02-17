@@ -4,10 +4,19 @@ import { selectFilter } from '../redux/selectors/contactsSelectors';
 import { Input } from '@nextui-org/react';
 import { Search } from 'lucide-react';
 
+/**
+ * Component for filtering contacts.
+ * @returns {JSX.Element} The JSX element representing the filter input.
+ */
 const Filter = () => {
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
+  /**
+   * Handles changes in the filter input.
+   * @param {object} event - The input change event.
+   * @returns {void}
+   */
   const handleChange = event => {
     dispatch(setFilter(event.target.value));
   };

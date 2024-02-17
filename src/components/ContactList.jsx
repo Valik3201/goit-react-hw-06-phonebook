@@ -16,19 +16,36 @@ import {
 import { Button } from '@nextui-org/react';
 import { Trash2 } from 'lucide-react';
 
-function ContactList() {
+/**
+ * Component for displaying the list of contacts.
+ * @returns {JSX.Element} The JSX element representing the contact list.
+ */
+const ContactList = () => {
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
+  /**
+   * Filters contacts based on the filter input.
+   * @type {Array}
+   */
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
+  /**
+   * Sorts contacts alphabetically by name.
+   * @type {Array}
+   */
   const sortedContacts = filteredContacts
     .slice()
     .sort((a, b) => a.name.localeCompare(b.name));
 
+  /**
+   * Handles contact deletion.
+   * @param {string} id - The id of the contact to be deleted.
+   * @returns {void}
+   */
   const handleDelete = id => {
     dispatch(deleteContact(id));
   };
@@ -76,6 +93,6 @@ function ContactList() {
       </TableBody>
     </Table>
   );
-}
+};
 
 export default ContactList;

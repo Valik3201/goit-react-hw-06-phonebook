@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   Modal,
   ModalContent,
@@ -7,7 +8,16 @@ import {
   Button,
 } from '@nextui-org/react';
 
-function ModalAlert({ isOpen, onClose, existingName, existingPhone }) {
+/**
+ * Modal alert component to display messages.
+ * @param {object} props - Component props.
+ * @param {boolean} props.isOpen - Flag indicating if the modal is open.
+ * @param {function} props.onClose - Function to close the modal.
+ * @param {string|null} props.existingName - The existing name (if any).
+ * @param {string|null} props.existingPhone - The existing phone (if any).
+ * @returns {JSX.Element} The JSX element representing the modal alert.
+ */
+const ModalAlert = ({ isOpen, onClose, existingName, existingPhone }) => {
   let message = '';
 
   if (existingName && existingPhone) {
@@ -44,6 +54,13 @@ function ModalAlert({ isOpen, onClose, existingName, existingPhone }) {
       </ModalContent>
     </Modal>
   );
-}
+};
 
 export default ModalAlert;
+
+ModalAlert.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  existingName: PropTypes.string,
+  existingPhone: PropTypes.string,
+};

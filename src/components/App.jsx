@@ -4,6 +4,10 @@ import Filter from './Filter';
 
 import { BookUserIcon } from 'lucide-react';
 
+/**
+ * The main component of the application.
+ * @returns {JSX.Element} The JSX element representing the main application.
+ */
 function App() {
   return (
     <div className="container mx-auto md:max-w-xl flex flex-col gap-4 p-4 md:p-8">
